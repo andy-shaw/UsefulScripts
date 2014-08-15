@@ -1,0 +1,3 @@
+Scripts.bat
+install_dictionary.bat
+challenge.bat
