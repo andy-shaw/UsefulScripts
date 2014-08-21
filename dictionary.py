@@ -36,7 +36,7 @@ def fetch(length=None):
     return words
 
 def fetch_indexed():
-    '''return a tree of all the words for quick indexing'''
+    '''return a dict of all the words for quick indexing'''
     f = open(path+default_name, 'r')
     words = {}
     for s in string.lowercase:
