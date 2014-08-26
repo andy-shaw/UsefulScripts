@@ -5,7 +5,7 @@ Andy Shaw
 This module provides a dictionary to interact with.
 '''
 
-default_name = 'enable1.txt'
+default_name = 'dictionary.txt'
 path = r'C:\\Python27\\Lib\\'
 
 import string
