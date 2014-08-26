@@ -5,7 +5,7 @@ Andy Shaw
 This module provides a dictionary to interact with.
 '''
 
-default_name = 'dictionary.txt'
+default_name = 'enable1.txt'
 path = r'C:\\Python27\\Lib\\'
 
 import string
@@ -18,21 +18,21 @@ def fetch(length=None):
 
     if not length: 
         if raw_input('The dict is large, do you wish to load? (y/n)').lower() == 'y':
-            word = f.readline().strip()
+            word = f.readline().strip().lower()
             while word:
                 words.append(word)
-                word = f.readline().strip()
+                word = f.readline().strip().lower()
             return words
 
         else:
             return []
 
     if length:
-        word = f.readline().strip()
+        word = f.readline().strip().lower()
         while word:
             if len(word) == length:
                 words.append(word)
-            word = f.readline().strip()
+            word = f.readline().strip().lower()
     return words
 
 def fetch_indexed():
@@ -43,11 +43,11 @@ def fetch_indexed():
         words[s] = []
 
     if raw_input('The dict is large, do you wish to load? (y/n)').lower() == 'y':
-        word = f.readline().strip()
+        word = f.readline().strip().lower()
         while word:
             #append words that start with certain letter to that letter in the dictionary
             words[word[0]].append(word)
-            word = f.readline().strip()
+            word = f.readline().strip().lower()
         return words
 
     else:
