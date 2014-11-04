@@ -1,4 +1,4 @@
 Scripts.bat
-install_dictionary.bat
+install_modules.bat
 challenge.bat
 merge.bat
