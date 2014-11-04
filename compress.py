@@ -13,18 +13,49 @@ sorted_letters =   [' ', 'E', 'S', 'I', 'A', 'R', 'N',
                     '1', '2', '3', '4', '5', '6', '7',
                     '8', '9', '%']
 
-def create_encoding():
-    #encoding is the same every time, I was simply lazy in writing out the binary by hand
-    i = 1
-    for c in sorted_letters:
-        t = str(bin(i))[2:]
+def create_encoding_source(text):
+    #count characters in text
+    x = {}
+    for ch in text:
+        if ch not in x.keys():
+            x[ch] = 1
+        else:
+            x[ch] += 1
 
-        #remove 001 from being in any of the encodings
-        while deliminator + '1' in t:
-            i += 1
+    #sort based on frequency of occurace
+    t = []
+    [t.append((val, key)) for key,val in x.items()]
+
+    source = []
+    for n, c in sorted(t, reverse=True):
+        source.append(c)
+    return source
+
+
+def create_encoding(source_list=None):
+    #encoding is the same every time, I was simply lazy in writing out the binary by hand
+    if source_list:
+        i = 1
+        for c in source_list:
             t = str(bin(i))[2:]
-        encoding[c] = t
-        i += 1
+
+            #remove 001 from being in any of the encodings
+            while deliminator + '1' in t:
+                i += 1
+                t = str(bin(i))[2:]
+            encoding[c] = t
+            i += 1
+    else:
+        i = 1
+        for c in sorted_letters:
+            t = str(bin(i))[2:]
+
+            #remove 001 from being in any of the encodings
+            while deliminator + '1' in t:
+                i += 1
+                t = str(bin(i))[2:]
+            encoding[c] = t
+            i += 1
 
 def compress(text):
     '''compress text, returns binary as string'''
