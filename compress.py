@@ -3,6 +3,7 @@ import string
 
 infile = 'bitstream_input.txt'
 encoding = {}
+omit = []
 deliminator = '00'
 
 #pre-calculated frequency of letters based on a separate dictionary with digits at the end
@@ -16,11 +17,16 @@ sorted_letters =   [' ', 'E', 'S', 'I', 'A', 'R', 'N',
 def create_encoding_source(text):
     #count characters in text
     x = {}
-    for ch in text:
-        if ch not in x.keys():
-            x[ch] = 1
-        else:
-            x[ch] += 1
+    for c in string.printable:
+        x[c] = 0
+
+    for line in text:
+        for ch in line:
+            if ch not in x.keys():
+                print 'Invalid Character:{0} -- Ommitting from encoding'.format(ch)
+                omit.append(ch)
+            else:
+                x[ch] += 1
 
     #sort based on frequency of occurace
     t = []
@@ -61,7 +67,8 @@ def compress(text):
     '''compress text, returns binary as string'''
     result = ''
     for letter in text:
-        result += deliminator + encoding[letter]
+        if letter not in omit:
+            result += deliminator + encoding[letter]
 
     return result
 
