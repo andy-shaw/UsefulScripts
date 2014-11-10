@@ -25,6 +25,9 @@ def create_encoding_source(text):
             if ch not in x.keys() and ch not in omit:
                 print 'Invalid Character:{0} -- Ommitting from encoding'.format(ch)
                 omit.append(ch)
+            elif ch in omit:
+                #do nothing
+                pass
             else:
                 x[ch] += 1
 
