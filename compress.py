@@ -6,6 +6,8 @@ encoding = {}
 omit = []
 deliminator = '00'
 
+POSSIBLE_CHARACTERS = string.printable
+
 #pre-calculated frequency of letters based on a separate dictionary with digits at the end
 sorted_letters =   [' ', 'E', 'S', 'I', 'A', 'R', 'N', 
                     'T', 'O', 'L', 'C', 'D', 'U', 'P', '\n',
@@ -17,7 +19,7 @@ sorted_letters =   [' ', 'E', 'S', 'I', 'A', 'R', 'N',
 def create_encoding_source(text):
     #count characters in text
     x = {}
-    for c in string.printable:
+    for c in POSSIBLE_CHARACTERS:
         x[c] = 0
 
     for line in text:
