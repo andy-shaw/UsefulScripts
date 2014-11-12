@@ -1,7 +1,6 @@
 import math
 import string
 
-infile = 'bitstream_input.txt'
 encoding = {}
 omit = []
 deliminator = '00'
