@@ -1,9 +1,9 @@
 @echo off
 echo Running aliases
 
-echo ----subl
-echo ----n++
-echo ----winscp
+echo ----subl = sublime text
+echo ----n++ = notepad++
+echo ----winscp = winscp
 
 doskey subl="C:\Program Files\Sublime Text 2\sublime_text.exe" $*
 doskey n++="C:\Program Files (x86)\Notepad++\notepad++.exe" $*
