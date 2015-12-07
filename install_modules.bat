@@ -7,4 +7,6 @@ xcopy C:\UsefulScripts\dictionary.py C:\Python27\Lib\ /Y /F
 
 xcopy C:\UsefulScripts\compress.py C:\Python27\Lib\ /Y /F
 
+xcopy C:\UsefulScripts\budget.py C:\Python27\Lib\ /Y /F
+
 echo on
