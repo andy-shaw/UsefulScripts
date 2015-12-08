@@ -1,4 +1,6 @@
 
+debug = False
+
 def workdays(month, year):
     '''calculate the weekdays of a month and year ('jan', 2015), ('dec', 2018), ...'''
     import datetime
@@ -18,12 +20,14 @@ def workdays(month, year):
     }
 
     month = months[month.lower()]
-    next_month = (month + 1) % (len(months.keys()) + 1)
+    next_month = (month) % (len(months.keys())) + 1
     year = int(year)
     if month > next_month: 
         next_year = int(year) + 1
     else:
         next_year = year
+
+    if debug: print 'month:', month, 'next_month', next_month, 'year', year, 'next_year:', next_year
 
     fromdate = datetime.date(year,month,1)
     todate = datetime.date(next_year,next_month,1)
@@ -59,14 +63,16 @@ def daysinmonth(day, month, year):
 
     day = days[day.lower()]
     month = months[month.lower()]
-    next_month = (month + 1) % (len(months.keys()) + 1)
+    next_month = (month) % (len(months.keys())) + 1
     year = int(year)
     if month > next_month: 
         next_year = int(year) + 1
     else:
         next_year = year
 
+    if debug: print 'day:', day, 'month:', month, 'next_month', next_month, 'year', year, 'next_year:', next_year
+
     fromdate = datetime.date(year,month,1)
     todate = datetime.date(next_year,next_month,1)
     daygenerator = (fromdate + datetime.timedelta(x + 1) for x in xrange((todate - fromdate).days))
-    return sum(1 for day in daygenerator if day.weekday() == day)
+    return sum(1 for d in daygenerator if d.weekday() == day)
