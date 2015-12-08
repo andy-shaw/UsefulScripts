@@ -1,5 +1,6 @@
 
 def workdays(month, year):
+    '''calculate the weekdays of a month and year ('jan', 2015), ('dec', 2018), ...'''
     import datetime
     months = {
         'jan': 1,
