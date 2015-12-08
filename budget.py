@@ -69,4 +69,4 @@ def daysinmonth(day, month, year):
     fromdate = datetime.date(year,month,1)
     todate = datetime.date(next_year,next_month,1)
     daygenerator = (fromdate + datetime.timedelta(x + 1) for x in xrange((todate - fromdate).days))
-    return sum(1 for day in daygenerator if day.weekday() = day)
+    return sum(1 for day in daygenerator if day.weekday() == day)
