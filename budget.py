@@ -1,6 +1,6 @@
-import datetime
 
 def workdays(month, year):
+    import datetime
     months = {
         'jan': 1,
         'feb': 2,
