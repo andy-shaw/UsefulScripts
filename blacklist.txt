@@ -2,3 +2,13 @@ Scripts.bat
 install_modules.bat
 challenge.bat
 merge.bat
+places.bat
+panda.bat
+download_url.bat
+documents.bat
+datetime.bat
+useful.bat
+school.bat
+code.bat
+github.bat
+programming.bat
